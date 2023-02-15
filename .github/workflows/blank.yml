@@ -1,0 +1,17 @@
+esourceType: Microsoft.Network/azureFirewalls/networkRuleCollections
+ apiVersion:
+name: Ashutosh-FW
+dependsOn:
+  - Microsoft.Network/azureFirewalls/example-firewall
+properties:
+  priority: 100
+  action: Deny
+  ruleType: NetworkRule
+  rules:
+    - name: block-ip-rule
+      description: "Block IP address"
+      ruleType: NetworkRule
+      ruleCondition:
+        sourceAddresses:
+          - 10.0.0.1/32
+          - 192.168.0.0/16
